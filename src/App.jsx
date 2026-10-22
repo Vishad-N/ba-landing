@@ -44,11 +44,11 @@ const MENTOR = {
   photo: '/rupak-aich.jpg',
 };
 
-// Hero intro video (landscape 16:9). PLACEHOLDER: swap in Rupak's own intro.
+// Hero intro video (landscape 16:9).
 // vimeoId: the number in vimeo.com/123456789. For unlisted videos also set `hash`
 // (the part after the slash in vimeo.com/123456789/abcdef1234).
 // In Vimeo: Settings > Privacy > allow embedding on your domain, and keep audio on.
-const INTRO_VIDEO = { vimeoId: '1084537', hash: '' };
+const INTRO_VIDEO = { vimeoId: '1238382386', hash: '' };
 
 const HEADLINE_STATS = [
   ['ph-fill ph-buildings', '342+ MSMEs Transformed'],
@@ -645,10 +645,6 @@ function IntroVideo() {
           <span className="intro-badge"><i className="intro-dot" />Meet your host</span>
           {showPlay && <span className="intro-play" aria-hidden="true"><i className="ph-fill ph-play" /></span>}
           <div className="intro-bar">
-            <span className="intro-cap">
-              <b>A quick hello from {MENTOR.name}</b>
-              <small>{MENTOR.title}</small>
-            </span>
             <span className="intro-sound" aria-live="polite">
               <span className="eq" aria-hidden="true"><i /><i /><i /><i /></span>
               <i className={`ph-fill ${wantSound ? 'ph-speaker-high' : 'ph-speaker-slash'}`} aria-hidden="true" />
@@ -656,6 +652,14 @@ function IntroVideo() {
             </span>
           </div>
           <span className="intro-progress" aria-hidden="true"><i style={{ transform: `scaleX(${progress})` }} /></span>
+        </div>
+        {/* caption sits below the video so it never covers anything baked into the footage */}
+        <div className="intro-foot">
+          <span className="intro-cap">
+            <b>A quick hello from {MENTOR.name}</b>
+            <small>{MENTOR.title}</small>
+          </span>
+          <span className="intro-when"><i className="ph ph-calendar-blank" aria-hidden="true" />{EVENT.dateShort} · 09:00 AM IST</span>
         </div>
       </div>
     </div>
