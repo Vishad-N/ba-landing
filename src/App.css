@@ -684,3 +684,40 @@ footer .disclaimer { font-size: .78rem; color: var(--text-3); max-width: 80ch }
   .sticky .timer span { padding: 2px 4px; font-size: .72rem }
   .sticky .btn { padding: 11px 14px; font-size: .78rem }
 }
+
+/* ---------- mobile-only dynamic background ---------- */
+.mbg { display: none }
+@media (max-width: 767px) {
+  .mbg { display: block; position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; contain: strict }
+  .mbg .o { position: absolute; border-radius: 50%; will-change: transform; translate: 0 calc(var(--sy, 0) * -0.06px) }
+  .mbg .o1 { width: 120vw; height: 120vw; left: -45vw; top: -20vw; background: radial-gradient(circle, rgba(106, 27, 196, .5) 0%, rgba(106, 27, 196, 0) 65%) }
+  .mbg .o2 { width: 110vw; height: 110vw; right: -55vw; top: 38vh; background: radial-gradient(circle, rgba(169, 112, 255, .3) 0%, rgba(169, 112, 255, 0) 65%) }
+  .mbg .o3 { width: 100vw; height: 100vw; left: -30vw; bottom: -30vw; background: radial-gradient(circle, rgba(67, 7, 125, .65) 0%, rgba(67, 7, 125, 0) 65%) }
+  .mbg .mgrid {
+    position: absolute; inset: -60px 0; opacity: .9;
+    background-image: linear-gradient(rgba(251, 253, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(251, 253, 255, .045) 1px, transparent 1px);
+    background-size: 44px 44px; translate: 0 calc(var(--sy, 0) * -0.1px);
+    -webkit-mask-image: radial-gradient(90% 70% at 50% 40%, #000 30%, transparent 100%); mask-image: radial-gradient(90% 70% at 50% 40%, #000 30%, transparent 100%)
+  }
+  .mbg i { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: var(--lilac); box-shadow: 0 0 10px 2px rgba(169, 112, 255, .7); opacity: .15 }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .mbg .o1 { animation: drift1 16s ease-in-out infinite alternate }
+  .mbg .o2 { animation: drift2 20s ease-in-out infinite alternate }
+  .mbg .o3 { animation: drift3 18s ease-in-out infinite alternate }
+  .mbg i { animation: twinkle 4.5s ease-in-out infinite }
+}
+@keyframes drift1 { to { transform: translate3d(22vw, 16vh, 0) scale(1.15) } }
+@keyframes drift2 { to { transform: translate3d(-28vw, -14vh, 0) scale(.9) } }
+@keyframes drift3 { to { transform: translate3d(26vw, -18vh, 0) scale(1.2) } }
+@keyframes twinkle { 0%, 100% { opacity: .1; transform: scale(.8) } 50% { opacity: .9; transform: scale(1.5) } }
+
+@media (max-width: 767px) {
+  /* let the ambient background show through the horizon arc; the glowing rim stays */
+  .horizon, .hero-grid > .horizon { background: radial-gradient(60% 8% at 50% 0%, rgba(106, 27, 196, .35), transparent 100%) }
+  .mbg .o1 { background: radial-gradient(circle, rgba(106, 27, 196, .62) 0%, rgba(106, 27, 196, 0) 65%) }
+  .mbg .o2 { background: radial-gradient(circle, rgba(169, 112, 255, .38) 0%, rgba(169, 112, 255, 0) 65%) }
+  .mbg .o3 { background: radial-gradient(circle, rgba(67, 7, 125, .85) 0%, rgba(67, 7, 125, 0) 65%) }
+}
+
+@media (max-width: 767px) { body { background: transparent !important } } /* beats the inline body style in index.html */

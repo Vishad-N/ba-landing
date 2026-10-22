@@ -393,7 +393,7 @@ function Photo({ src, alt, eager = false, width = 900, height = 1125 }) {
       width={width}
       height={height}
       loading={eager ? 'eager' : 'lazy'}
-      fetchpriority={eager ? 'high' : undefined}
+      fetchPriority={eager ? 'high' : undefined}
       onError={() => setOk(false)}
     />
   );
@@ -437,6 +437,39 @@ function Timer() {
       <span>{pad(Math.floor((s % 3600) / 60))}m</span>
       <span>{pad(s % 60)}s</span>
     </span>
+  );
+}
+
+/* Mobile-only ambient background: drifting purple light, a faint grid that
+   shifts as you scroll, and a few twinkling points. Pure transforms/opacity,
+   so it stays smooth on phones. Hidden on desktop by CSS. */
+const MBG_DOTS = [
+  [8, 6, 0], [86, 11, 1.4], [22, 24, 2.6], [70, 33, .8], [12, 47, 3.2],
+  [92, 55, 2], [40, 63, .4], [78, 74, 3.6], [18, 86, 1.8], [58, 94, 2.9],
+];
+
+function MobileBackdrop() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !window.matchMedia?.('(max-width: 767px)').matches || prefersReducedMotion()) return undefined;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => el.style.setProperty('--sy', String(window.scrollY)));
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+  }, []);
+  return (
+    <div className="mbg" ref={ref} aria-hidden="true">
+      <span className="o o1" /><span className="o o2" /><span className="o o3" />
+      <span className="mgrid" />
+      {MBG_DOTS.map(([x, y, d]) => (
+        <i key={`${x}-${y}`} style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${d}s` }} />
+      ))}
+    </div>
   );
 }
 
@@ -1119,6 +1152,7 @@ export default function App() {
   return (
     <div className="page" ref={rootRef}>
       <SvgDefs />
+      <MobileBackdrop />
       <div className="topbar">
         <b>{EVENT_NAME}</b> · {EVENT.dateShort} · Free · Limited to {SEATS_TOTAL} seats · No replay
       </div>
