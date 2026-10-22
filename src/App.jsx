@@ -664,7 +664,7 @@ function Results() {
 
 function Pains() {
   return (
-    <section className="pains">
+    <section className="pains light">
       <div className="wrap">
         <span className="pill rv">Who This Is For</span>
         <h2 className="display h2 rv">Do You Relate To Any Of These While <span className="hl">Building Your BA Career?</span></h2>
@@ -742,7 +742,7 @@ function Audience() {
 
 function Modules() {
   return (
-    <section className="modules">
+    <section className="modules light">
       <div className="wrap">
         <h2 className="display h2 rv">Inside This Live <span className="hl">3 Hour</span> Analyst Bootcamp</h2>
         <p className="lead rv">You'll learn and build live alongside graduates, career switchers and working analysts.</p>
@@ -787,7 +787,7 @@ function ValueStack() {
 
 function Mentor() {
   return (
-    <section className="mentor">
+    <section className="mentor light">
       <div className="wrap">
         <div className="mentor-card rv">
           <div className="top">
@@ -846,7 +846,7 @@ function Outcomes() {
 
 function Faq() {
   return (
-    <section className="faq">
+    <section className="faq light">
       <div className="wrap">
         <h2 className="display h2 rv">Frequently Asked <span className="hl">Questions</span></h2>
         <div className="faq-list">

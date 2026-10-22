@@ -309,11 +309,42 @@ section { position: relative }
 .faq summary:focus-visible { outline: 2px solid var(--lilac); outline-offset: -2px; border-radius: var(--r-card) }
 
 /* ---------- footer ---------- */
-footer { margin-top: 80px; border-top: 1px solid var(--line); padding: 28px 0; color: var(--text-3); font-size: .88rem }
+footer { margin-top: 0; border-top: 1px solid var(--line); padding: 28px 0; color: var(--text-3); font-size: .88rem }
 footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap }
 .foot-links { display: inline-flex; flex-wrap: wrap; gap: 8px 18px; align-items: center }
 .foot-links a { color: var(--text-2) }
 .foot-links .wa-link { color: var(--text) }
+
+/* ---------- light sections: contrast against the dark canvas ----------
+   Re-themes the tokens, so every component inside inherits readable
+   ink-on-paper colours. Accent text goes deep purple (~8:1 on the paper). */
+.light {
+  --bg: #F5F0FC;
+  --surface: #FFFFFF;
+  --surface-2: #F0E8FA;
+  --text: #1A1030;
+  --text-2: rgba(26, 16, 48, .76);
+  --text-3: rgba(26, 16, 48, .6);
+  --lilac: #5A1AA3;
+  --violet: #6A1BC4;
+  --line: rgba(67, 7, 125, .12);
+  --line-2: rgba(67, 7, 125, .22);
+  --purple-wash: rgba(106, 27, 196, .09);
+  --card-bg: #FFFFFF;
+  --shadow: 0 1px 2px rgba(22, 3, 60, .06), 0 22px 44px -30px rgba(67, 7, 125, .4);
+  --glow: 0 0 0 1px rgba(106, 27, 196, .28), 0 22px 46px -22px rgba(67, 7, 125, .5);
+  background: var(--bg); color: var(--text);
+  padding-bottom: 90px !important;
+  border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2)
+}
+.light .hl { background: linear-gradient(100deg, #43077D 10%, #6A1BC4 60%, #8A3FE0 100%); -webkit-background-clip: text; background-clip: text; filter: none }
+.light .pill { background: #fff; color: var(--lilac); border-color: var(--line-2) }
+.light .pain:hover, .light .mod:hover, .light .faq details[open] { border-color: rgba(106, 27, 196, .5) }
+.light .stats { --text: #FBFDFF; --text-3: rgba(251, 253, 255, .62); background: var(--indigo); color: #FBFDFF }
+.light .mentor-copy p.roles { color: var(--lilac) }
+.light .faq summary:focus-visible { outline-color: var(--purple-2) }
+.light ::selection { background: var(--purple-2); color: #fff }
+.light + .light { border-top: 0 }
 
 /* ---------- sticky bar: frosted dark glass ---------- */
 .sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 80; background: rgba(14, 10, 23, .88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-top: 1px solid var(--line-2); box-shadow: 0 -20px 50px -20px rgba(106, 27, 196, .5); color: var(--text); transform: translateY(calc(100% + 24px)); transition: transform .5s var(--ease), visibility 0s linear .5s; visibility: hidden }
