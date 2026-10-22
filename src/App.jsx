@@ -7,9 +7,8 @@ import './App.css';
    Edit them here; nothing is hard-coded further down.
    ================================================================== */
 
-// Every CTA opens the registration form.
-const REGISTER_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSekDRpizzy2lgEYr04SJok9kVmgqoBe377fensP7u6RvjRQkA/viewform';
+// Every CTA opens the registration page.
+const REGISTER_URL = 'https://webinar.gg/register/cmvj4mk8600fos60ylzzqtq81';
 
 const EVENT_NAME = 'MAP49™ Online Live Session';
 const COMPANY = 'Sparsh Magic';
