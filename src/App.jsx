@@ -932,10 +932,12 @@ function Numbers() {
    the iframe only loads on tap, which keeps the page fast for ad traffic.
    Only one video plays at a time. */
 
-const ytThumb = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+// maxresdefault is 16:9 with no baked-in black bars; fall back to hqdefault if a video has no HD thumbnail.
+const ytThumb = (id, hd = true) => `https://i.ytimg.com/vi/${id}/${hd ? 'maxresdefault' : 'hqdefault'}.jpg`;
 const ytSrc = (id) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
 
 function VideoCard({ video, featured = false, playing, onPlay }) {
+  const [hd, setHd] = useState(true);
   return (
     <article className={`vcard${featured ? ' featured' : ''}${playing ? ' playing' : ''}`}>
       <div className="vframe">
@@ -948,7 +950,7 @@ function VideoCard({ video, featured = false, playing, onPlay }) {
           />
         ) : (
           <button type="button" className="vposter" onClick={onPlay} aria-label={`Play ${video.who}'s testimonial`}>
-            <img src={ytThumb(video.id)} alt="" loading="lazy" decoding="async" />
+            <img src={ytThumb(video.id, hd)} alt="" loading="lazy" decoding="async" onError={() => setHd(false)} />
             <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>
             {featured && <span className="vtag" aria-hidden="true"><i className="ph-fill ph-star" />Featured story</span>}
           </button>
@@ -974,11 +976,13 @@ function Results() {
   const [first, ...rest] = VIDEOS;
 
   return (
-    <section className="results-shell">
+    <section className="results-shell light">
       <div className="wrap">
         <div className="results-head rv">
-          <h2 className="display">Founders Who Transformed Their Teams</h2>
-          <p>Hear It From Founders Themselves</p>
+          <span className="pill">Founder Stories</span>
+          <h2 className="display h2">Founders Who <span className="hl">Transformed Their Teams</span></h2>
+          <p>Hear it from founders themselves</p>
+          <span className="rating"><span className="stars" aria-hidden="true">★★★★★</span>5-Star Rated by Founders</span>
         </div>
         <div className="vlayout">
           <div className="rv">
@@ -1005,6 +1009,7 @@ function Results() {
             </figure>
           ))}
         </div>
+        <CtaBlock placement="results" />
       </div>
     </section>
   );
@@ -1012,7 +1017,7 @@ function Results() {
 
 function Fit() {
   return (
-    <section className="fit light">
+    <section className="fit">
       <div className="wrap">
         <span className="pill rv">Is This For You?</span>
         <h2 className="display h2 rv">This Session Is Strictly For <span className="hl">The Right People</span></h2>
@@ -1158,13 +1163,13 @@ export default function App() {
       </div>
       <main>
         <Hero heroRef={heroRef} />
+        <Results />
         <Clients />
         <Pains />
         <Journey />
         <Modules />
         <Mentor />
         <Numbers />
-        <Results />
         <Fit />
         <Gifts />
         <Faq />

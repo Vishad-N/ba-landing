@@ -759,3 +759,44 @@ footer .disclaimer { font-size: .78rem; color: var(--text-3); max-width: 80ch }
   .faq .horizon-band::after { -webkit-mask-image: radial-gradient(100% 48% at 50% 52%, #000 0%, transparent 100%); mask-image: radial-gradient(100% 48% at 50% 52%, #000 0%, transparent 100%) }
   .faq .final-title { margin-top: -100px }
 }
+
+/* ---------- Founder stories: a light sheet that rises over the hero ---------- */
+.results-shell.light {
+  margin: -40px 0 0; border: 0; border-radius: 40px 40px 0 0; padding: 84px 0 90px; z-index: 2; overflow: visible;
+  background: var(--bg); box-shadow: 0 -30px 60px -30px rgba(106, 27, 196, .35)
+}
+.results-shell.light::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(60% 260px at 50% 0%, rgba(110, 60, 190, .1), rgba(110, 60, 190, .04) 55%, rgba(110, 60, 190, 0) 100%)
+}
+.results-shell.light > .wrap { position: relative }
+.results-shell .results-head { display: grid; justify-items: center; gap: 0 }
+.results-shell .results-head .pill { margin-bottom: 14px }
+.results-shell .results-head p { margin-top: 12px; color: var(--text-2); font-size: clamp(1rem, 1.5vw, 1.15rem) }
+.results-shell .rating { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; padding: 7px 16px; border-radius: var(--r-pill); background: #fff; border: 1px solid var(--line-2); font-weight: 600; font-size: .86rem; color: var(--text) }
+.results-shell .rating .stars { color: #E8A317; letter-spacing: .12em; font-size: .9rem }
+.results-shell.light .vlayout { margin-top: 38px }
+
+/* cards on paper: white, quiet shadow, no dark gradients */
+.light .vcard { background: #fff; box-shadow: var(--shadow) }
+.light .vcard:hover, .light .vcard.playing { border-color: rgba(106, 27, 196, .45); box-shadow: var(--glow) }
+.light .vmeta { background: #fff }
+.light .vmeta .metric { color: var(--lilac) }
+.results-shell.light .tgrid { margin-top: 28px; gap: 18px }
+.results-shell.light .tcard { position: relative; overflow: hidden; background: #fff; transition: transform .45s var(--ease), box-shadow .3s, border-color .3s }
+.results-shell.light .tcard::before { content: "\201C"; position: absolute; top: -6px; right: 18px; font-family: Georgia, "Times New Roman", serif; font-size: 5.5rem; line-height: 1; color: rgba(106, 27, 196, .1); pointer-events: none }
+.results-shell.light .tcard:hover { transform: translateY(-3px); border-color: rgba(106, 27, 196, .4); box-shadow: var(--glow) }
+.results-shell.light .tcard blockquote { position: relative; color: var(--text); font-size: 1.02rem }
+.results-shell.light .tcard figcaption { padding-top: 14px; border-top: 1px solid var(--line) }
+.results-shell.light .tcard .av { background: linear-gradient(180deg, var(--purple-2), var(--purple)) }
+.results-shell.light .vhint { color: var(--text-3) }
+
+@media (max-width: 767px) {
+  .results-shell.light { margin-top: -28px; border-radius: 28px 28px 0 0; padding: 56px 0 64px }
+  .results-shell .rating { font-size: .78rem; padding: 6px 12px }
+}
+
+.light .vtag { color: #fff }
+.light .vtag i { color: #D9C2FF }
+.featured .vmeta { flex: none }
+@media (max-width: 1024px) { .featured .vmeta { flex: none } }
