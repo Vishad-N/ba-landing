@@ -45,6 +45,12 @@ const MENTOR = {
   photo: '/rupak-aich.jpg',
 };
 
+// Hero intro video (landscape 16:9). PLACEHOLDER: swap in Rupak's own intro.
+// vimeoId: the number in vimeo.com/123456789. For unlisted videos also set `hash`
+// (the part after the slash in vimeo.com/123456789/abcdef1234).
+// In Vimeo: Settings > Privacy > allow embedding on your domain, and keep audio on.
+const INTRO_VIDEO = { vimeoId: '1084537', hash: '' };
+
 const HEADLINE_STATS = [
   ['ph-fill ph-buildings', '342+ MSMEs Transformed'],
   ['ph-fill ph-users-three', '32,000+ Employees Analyzed'],
@@ -464,6 +470,166 @@ function HeroBackdrop() {
   );
 }
 
+/* ---------- Hero intro video (Vimeo) ----------
+   Autoplays muted and loops. Hovering the card (mouse) unmutes it; leaving
+   mutes it again. Click / tap / Enter pins the sound on or off, which is also
+   the only route on touch screens, and it is what browsers require anyway:
+   unmuted audio needs a user gesture, and hover alone is not one. If a
+   browser blocks hover-unmute, we fall back to muted playback and the pill
+   asks for a click. Playback pauses while the card is off screen. */
+
+let vimeoApi;
+const loadVimeoApi = () => {
+  if (typeof window === 'undefined') return Promise.reject(new Error('no window'));
+  if (window.Vimeo) return Promise.resolve(window.Vimeo);
+  vimeoApi ||= new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://player.vimeo.com/api/player.js';
+    s.async = true;
+    s.onload = () => resolve(window.Vimeo);
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+  return vimeoApi;
+};
+
+const introSrc = (reduced) => {
+  const p = new URLSearchParams({
+    autoplay: reduced ? '0' : '1', muted: '1', loop: '1', controls: '0', playsinline: '1',
+    title: '0', byline: '0', portrait: '0', dnt: '1', autopause: '0', color: 'A970FF',
+  });
+  if (INTRO_VIDEO.hash) p.set('h', INTRO_VIDEO.hash);
+  return `https://player.vimeo.com/video/${INTRO_VIDEO.vimeoId}?${p}`;
+};
+
+function IntroVideo() {
+  const frameRef = useRef(null);
+  const iframeRef = useRef(null);
+  const playerRef = useRef(null);
+  const startedRef = useRef(false);
+  const [reduced] = useState(prefersReducedMotion);
+  const [mount, setMount] = useState(false);
+  const [ready, setReady] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [pinned, setPinned] = useState(false);
+  const [blocked, setBlocked] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [thumb, setThumb] = useState(null);
+  const wantSound = hover || pinned;
+
+  // Poster from Vimeo's public oEmbed API, then mount the player shortly after first paint.
+  useEffect(() => {
+    let alive = true;
+    const page = `https://vimeo.com/${INTRO_VIDEO.vimeoId}${INTRO_VIDEO.hash ? `/${INTRO_VIDEO.hash}` : ''}`;
+    fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(page)}&width=1280`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (alive && d?.thumbnail_url) setThumb(d.thumbnail_url); })
+      .catch(() => {});
+    const t = setTimeout(() => setMount(true), 300);
+    return () => { alive = false; clearTimeout(t); };
+  }, []);
+
+  useEffect(() => {
+    if (!mount) return undefined;
+    let dead = false;
+    loadVimeoApi()
+      .then((V) => {
+        if (dead || !iframeRef.current) return;
+        const p = new V.Player(iframeRef.current);
+        playerRef.current = p;
+        p.ready().then(() => !dead && setReady(true)).catch(() => {});
+        p.on('timeupdate', (d) => setProgress(d.percent || 0));
+      })
+      .catch(() => {});
+    return () => { dead = true; };
+  }, [mount]);
+
+  // Sound follows hover / pin.
+  useEffect(() => {
+    const p = playerRef.current;
+    if (!p || !ready) return;
+    const setSound = (on) =>
+      (p.setMuted ? p.setMuted(!on) : Promise.resolve()).then(() => p.setVolume(on ? 1 : 0));
+    if (!wantSound) { setSound(false).catch(() => {}); return; }
+    let cancelled = false;
+    setSound(true)
+      .then(() => new Promise((r) => setTimeout(r, 300)))
+      .then(() => p.getPaused())
+      .then((paused) => { if (paused && !cancelled) { startedRef.current = true; return p.play(); } return null; })
+      .then(() => { if (!cancelled) setBlocked(false); })
+      .catch(() => {
+        // Browser refused unmuted playback without a gesture: stay muted and ask for a click.
+        setSound(false).then(() => p.play()).catch(() => {});
+        if (!cancelled && !pinned) setBlocked(true);
+      });
+    return () => { cancelled = true; };
+  }, [wantSound, ready, pinned]);
+
+  // Pause while off screen to save battery and data.
+  useEffect(() => {
+    const el = frameRef.current;
+    if (!el || !ready || !('IntersectionObserver' in window)) return undefined;
+    const io = new IntersectionObserver(([e]) => {
+      const p = playerRef.current;
+      if (!p) return;
+      if (!e.isIntersecting) p.pause().catch(() => {});
+      else if (!reduced || startedRef.current) p.play().catch(() => {});
+    }, { threshold: 0.25 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [ready, reduced]);
+
+  const toggle = () => {
+    startedRef.current = true;
+    setBlocked(false);
+    setPinned((v) => !v);
+  };
+  const showPlay = reduced && !startedRef.current && !pinned;
+
+  return (
+    <div className="intro rv" style={{ '--i': 1 }}>
+      <div
+        ref={frameRef}
+        className={`intro-card${wantSound ? ' sound' : ''}${ready ? ' ready' : ''}`}
+        role="button"
+        tabIndex={0}
+        aria-pressed={pinned}
+        aria-label={`Intro video from ${MENTOR.name}. ${pinned ? 'Press to mute' : 'Press to play with sound'}`}
+        onPointerEnter={(e) => { if (e.pointerType === 'mouse') setHover(true); }}
+        onPointerLeave={() => setHover(false)}
+        onClick={toggle}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } }}
+      >
+        <div className="intro-frame" style={thumb ? { backgroundImage: `url(${thumb})` } : undefined}>
+          {mount && (
+            <iframe
+              ref={iframeRef}
+              src={introSrc(reduced)}
+              title={`Intro video from ${MENTOR.name}`}
+              allow="autoplay; fullscreen; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          )}
+          <span className="intro-badge"><i className="intro-dot" />Meet your host</span>
+          {showPlay && <span className="intro-play" aria-hidden="true"><i className="ph-fill ph-play" /></span>}
+          <div className="intro-bar">
+            <span className="intro-cap">
+              <b>A quick hello from {MENTOR.name}</b>
+              <small>{MENTOR.title}</small>
+            </span>
+            <span className="intro-sound" aria-live="polite">
+              <span className="eq" aria-hidden="true"><i /><i /><i /><i /></span>
+              <i className={`ph-fill ${wantSound ? 'ph-speaker-high' : 'ph-speaker-slash'}`} aria-hidden="true" />
+              {wantSound ? 'Sound on' : blocked ? 'Click for sound' : (<><span className="hov-only">Hover for sound</span><span className="touch-only">Tap for sound</span></>)}
+            </span>
+          </div>
+          <span className="intro-progress" aria-hidden="true"><i style={{ transform: `scaleX(${progress})` }} /></span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Hero({ heroRef }) {
   return (
     <section className="hero" ref={heroRef}>
@@ -485,6 +651,8 @@ function Hero({ heroRef }) {
             ))}
           </p>
         </div>
+
+        <IntroVideo />
 
         <div className="hero-grid">
           <div className="horizon" aria-hidden="true" />
