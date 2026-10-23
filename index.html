@@ -71,7 +71,9 @@
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
 
   <!-- ================= Meta Pixel base code ================= -->
-  <!-- Pixel ID 954661734136483 (also in the noscript tag below). If you run a cookie banner,
+  <!-- Pixel IDs 954661734136483 and 2551211742042948 (also in the noscript tags below). The base
+       loader runs once; each extra fbq('init') adds a pixel, and every fbq('track') below and in
+       App.jsx then fires to all of them. If you run a cookie banner,
        call fbq('consent','revoke') before init and fbq('consent','grant') on accept. -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -83,6 +85,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '954661734136483');
+    fbq('init', '2551211742042948');
     fbq('track', 'PageView');
   </script>
   <!-- End Meta Pixel (noscript fallback image lives at the top of <body>) -->
@@ -112,6 +115,8 @@
 <body style="background:#0E0A17;color:#FBFDFF">
   <noscript><img height="1" width="1" style="display:none" alt=""
     src="https://www.facebook.com/tr?id=954661734136483&ev=PageView&noscript=1" /></noscript>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=2551211742042948&ev=PageView&noscript=1" /></noscript>
   <noscript>
     <p style="padding:24px;font-family:sans-serif;text-align:center;color:#FBFDFF">
       Please enable JavaScript to view this page, or message us on WhatsApp at
