@@ -10,14 +10,14 @@ import './App.css';
 // Every CTA opens the registration page.
 const REGISTER_URL = 'https://rzp.io/rzp/z8Qyfmm';
 
-const EVENT_NAME = 'TPS™ Live Session';
+const EVENT_NAME = 'TPS Live Session';
 const COMPANY = 'Sparsh Magic';
 const TAGLINE = 'Growth. Yours Forever.';
 
-const PHONE_DISPLAY = '+91 96309 21905';
-const PHONE_TEL = 'tel:+919630921905';
+const PHONE_DISPLAY = '+91 96850 97282';
+const PHONE_TEL = 'tel:+919685097282';
 const WHATSAPP_LINK =
-  'https://wa.me/919630921905?text=' +
+  'https://wa.me/919685097282?text=' +
   encodeURIComponent('Hi, I have a question about the TPS Live Session.');
 const WEBSITE_URL = 'https://www.teamproductivityonspeed.com';
 const WEBSITE_LABEL = 'teamproductivityonspeed.com';
@@ -78,7 +78,7 @@ const JOURNEY = [
 ];
 
 const MODULES = [
-  { n: '01', title: 'The TPS™ (Team Productivity System) Framework', items: [
+  { n: '01', title: 'The TPS (Team Productivity System) Framework', items: [
     'The complete Matrix of Accountability and Productivity: 4 areas, 9 performance scores',
     'Know exactly where your team is leaking productivity and profit right now',
   ] },
@@ -111,7 +111,7 @@ const MENTOR_STATS = [
 ];
 
 const WINS = [
-  'Built the TPS™ (Team Productivity System) from 342+ real MSME case studies, not imported theories',
+  'Built the TPS (Team Productivity System) from 342+ real MSME case studies, not imported theories',
   'Helped a retail chain go from 100% owner-dependent to fully self-running in 90 days',
   'Delivered 171% revenue growth for a distribution business in 2 years',
   'Reduced operational costs by 15% across multiple businesses without firing anyone',
@@ -145,7 +145,7 @@ const TESTIMONIALS = [
   ['JS', 'Jagmohan Singh', 'JSA', 'Team productivity increased by 70%. I rate them 8 out of 10 in implementing Team Productivity. The system actually works.'],
   ['NN', 'Nikhil Naik', 'A D Naik Wealth', 'Team got aligned and we are on growth trajectory. The TPS system gave us clarity we never had before in 10 years of business.'],
   ['RP', 'Ravindra Patil', 'Patco Precision', 'The clarity I got about my team\'s performance in one session was more than I got in 5 years of running the business.'],
-  ['MF', 'MSME Founder', 'TPS™ Workshop Attendee', 'I have been running my business for 12 years and nobody ever showed me this. This is the most practical thing I have ever attended.'],
+  ['MF', 'MSME Founder', 'TPS Workshop Attendee', 'I have been running my business for 12 years and nobody ever showed me this. This is the most practical thing I have ever attended.'],
 ];
 
 // Video testimonials. The first one is the featured (large) video.
@@ -154,7 +154,7 @@ const VIDEOS = [
   { id: '4gbyKHIk07Q', metric: '70%', who: 'Jagmohan Singh, JSA', path: 'Team\'s productivity increased by 70%. The system actually works.' },
   {
     id: 'ashwin-gandhi',
-    url: 'https://1drv.ms/v/c/A57D43C0A3EF3CB3/Ab4mkk6119JKvf3jxAiOkH4?e=C7aooY',
+    url: 'https://vimeo.com/1240221272?share=copy&fl=sv&fe=ci',
     poster: '/ashwin-gandhi.jpg',
     metric: '90 Days',
     who: 'Ashwin Gandhi, Kohinoor Mall',
@@ -184,14 +184,14 @@ const SKIP = [
 const GIFTS = [
   ['ph-clipboard-text', 'Team Accountability Templates', 'Ready-to-use templates to install accountability in your team from Day 1.'],
   ['ph-calculator', 'Productivity Calculation Models', 'Simple models to calculate exactly how much productivity is leaking from your team right now.'],
-  ['ph-list-checks', 'Implementation Checklist', 'A step-by-step checklist to implement the TPS™ (Team Productivity System) within 30 days.'],
+  ['ph-list-checks', 'Implementation Checklist', 'A step-by-step checklist to implement the TPS (Team Productivity System) within 30 days.'],
   ['ph-gift', 'Surprise Digital Gifts', 'Special digital gifts shared with every live attendee. You have to show up to find out.'],
   ['ph-chats-circle', 'Live Q&A with Rupak', 'Ask your specific business and team challenges directly to Rupak. Get answers live in person.'],
   ['ph-crown-simple', 'Executive Circle (Last 30 Seats)', 'The last 30 registrations get VIP placement, priority Q&A access and exclusive benefits at the venue.'],
 ];
 
 const VALUE_STACK = [
-  'Complete TPS™ (Team Productivity System)',
+  'Complete TPS (Team Productivity System)',
   '9-Matrix Team Performance Score',
   'Live Implementation Frameworks',
   'Real MSME Case Studies',
@@ -206,11 +206,11 @@ const VALUE_STACK = [
 
 const FAQS = [
   ['Is this a recorded session or live in-person?', 'This is a fully LIVE in-person workshop at Hotel Holiday Inn, Mayur Vihar. Not an online recording. You need to attend in person. The live format is intentional: real questions, real answers, real transformation in real time.'],
-  ['I have attended workshops before. How is this different?', 'Most workshops give you knowledge. This gives you a system. TPS™ (Team Productivity System) is not a concept you take notes on. It is a working framework you implement the very next day. Every session is built on 342+ real MSME case studies, not theory from a textbook.'],
+  ['I have attended workshops before. How is this different?', 'Most workshops give you knowledge. This gives you a system. TPS (Team Productivity System) is not a concept you take notes on. It is a working framework you implement the very next day. Every session is built on 342+ real MSME case studies, not theory from a textbook.'],
   ['What should I bring to the workshop venue?', 'Just bring a notebook and an open mind. We will provide all workshop materials, accountability templates, and calculation models directly at the venue. Please arrive a few minutes early before 10:00 AM for check-in.'],
   ['Why is the registration fee ₹3,499 instead of ₹9,999?', 'The regular ticket price is ₹9,999, but we are offering a limited special seat rate of ₹3,499 to support growth-focused MSME founders. There are strictly limited seats due to venue hall capacity.'],
   ['What if I miss the live session?', `There is no recording or replay of this in-person session. Seats are strictly reserved for registered attendees at the venue. We strongly recommend you register and block your calendar right now. WhatsApp us on ${PHONE_DISPLAY} if you have any questions.`],
-  ['My team has only 10 people. Is this still relevant?', 'Yes. The TPS™ (Team Productivity System) framework is designed for teams of all sizes. Whether you have 10 or 1000 employees, the accountability and productivity systems are applicable. The earlier you install this, the faster your business grows without you.'],
+  ['My team has only 10 people. Is this still relevant?', 'Yes. The TPS (Team Productivity System) framework is designed for teams of all sizes. Whether you have 10 or 1000 employees, the accountability and productivity systems are applicable. The earlier you install this, the faster your business grows without you.'],
   ['Will there be a recording after the session?', 'There will be NO recording of this session. This is an exclusive in-person workshop at Hotel Holiday Inn, Mayur Vihar. Attend live or miss it entirely. Register now to confirm your seat.'],
 ];
 
@@ -703,14 +703,14 @@ function Hero({ heroRef }) {
           <div className="horizon" aria-hidden="true" />
           <div className="portrait rv" style={{ '--i': 1 }}>
             <div className="portrait-frame photo-fill">
-              <Photo src={MENTOR.photo} alt={`Portrait of ${MENTOR.name}`} eager />
+              <Photo src="/rupak-session.webp" alt={`Portrait of ${MENTOR.name}`} eager />
             </div>
             <div className="nameplate">
               <b>{MENTOR.name.toUpperCase()}</b>
               <span>{MENTOR.title}</span>
             </div>
             <p className="bio">
-              <strong>{MENTOR.name}</strong> has spent 20+ years inside real Indian businesses and built the TPS™ (Team Productivity System) framework from <strong>342+ MSMEs</strong> and <strong>32,000+ employees</strong>.
+              <strong>{MENTOR.name}</strong> has spent 20+ years inside real Indian businesses and built the TPS (Team Productivity System) framework from <strong>342+ MSMEs</strong> and <strong>32,000+ employees</strong>.
             </p>
           </div>
 
@@ -739,7 +739,7 @@ function Clients() {
     ));
   return (
     <section className="tools">
-      <h2 className="tools-title rv">Founders From These Businesses Have Implemented TPS™</h2>
+      <h2 className="tools-title rv">Founders From These Businesses Have Implemented TPS</h2>
       <div className="marquee rv" style={{ '--i': 1 }}>
         {/* duplicated once so the -50% loop is seamless */}
         <div className="marquee-track">{names(false)}{names(true)}</div>
@@ -863,7 +863,7 @@ function Mentor() {
         <div className="mentor-card rv">
           <div className="top">
             <span className="pill">Your Host</span>
-            <h2 className="display h2">The Man Behind <span className="hl">TPS™</span></h2>
+            <h2 className="display h2">The Man Behind <span className="hl">TPS</span></h2>
           </div>
           <div className="mentor-photo">
             <Photo src={MENTOR.photo} alt={`${MENTOR.name} speaking`} />
@@ -879,7 +879,7 @@ function Mentor() {
               ))}
             </div>
             <p>{MENTOR.name} is not a motivational speaker. He is a practitioner, someone who has spent over 20 years inside real Indian businesses, diagnosing exactly why teams underperform and fixing it with <strong>systems, not slogans</strong>.</p>
-            <p>He developed the TPS™ (Team Productivity System) framework after studying 342+ MSMEs and analyzing over 32,000 employees across manufacturing, retail, services, distribution and healthcare.</p>
+            <p>He developed the TPS (Team Productivity System) framework after studying 342+ MSMEs and analyzing over 32,000 employees across manufacturing, retail, services, distribution and healthcare.</p>
             <p>His consulting engagements typically cost between <strong>₹3 Lakh to ₹14 Lakh</strong> per business. In this live workshop, you get the exact same system for just ₹3,499.</p>
             <ul className="wins">
               {WINS.map((w) => (<li key={w}><i className="ph ph-check-circle" />{w}</li>))}
@@ -907,7 +907,7 @@ function Numbers() {
       <div className="wrap">
         <span className="pill rv">Proven Results</span>
         <h2 className="display h2 rv">Real Numbers. <span className="hl">Real Businesses. Real India.</span></h2>
-        <p className="lead rv">Results from MSME founders who implemented TPS™. Results may vary; individual outcomes depend on implementation.</p>
+        <p className="lead rv">Results from MSME founders who implemented TPS. Results may vary; individual outcomes depend on implementation.</p>
         <div className="stat-grid">
           {RESULT_STATS.map(([icon, big, label, sub], i) => (
             <div className="stat-card rv" style={{ '--i': i }} key={label}>
@@ -922,7 +922,7 @@ function Numbers() {
         <div className="case rv">
           <span className="pill">Real Case Study · Retail Industry</span>
           <h3>From 100% Owner-Dependent to Fully Self-Running in 90 Days</h3>
-          <p>A retail business owner with 100% owner-dependent operations. Here's what happened in 90 days after implementing TPS™.</p>
+          <p>A retail business owner with 100% owner-dependent operations. Here's what happened in 90 days after implementing TPS.</p>
           <div className="case-grid">
             {CASE_STUDY.map(([label, before, after]) => (
               <div className="case-row" key={label}>
@@ -962,7 +962,7 @@ function VideoCard({ video, featured = false, playing, onPlay }) {
             rel="noopener noreferrer"
             className="vposter"
             onClick={onPlay}
-            aria-label={`Watch ${video.who}'s video testimonial on OneDrive`}
+            aria-label={`Watch ${video.who}'s video testimonial`}
           >
             <img src={video.poster} alt={video.who} loading="lazy" decoding="async" />
             <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>

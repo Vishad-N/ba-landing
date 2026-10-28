@@ -481,7 +481,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
 /* ---------- Rupak Aich page additions ---------- */
 .portrait-frame.photo-fill { aspect-ratio: 4/4.7; background: var(--indigo) }
-.portrait-frame.photo-fill img { inset: 0; left: 0; bottom: auto; transform: none; width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; object-fit: cover; object-position: 50% 18%; filter: none; -webkit-mask-image: none; mask-image: none }
+.portrait-frame.photo-fill img { inset: 0; left: 0; bottom: auto; transform: none; width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; object-fit: cover; object-position: center top; filter: none; -webkit-mask-image: none; mask-image: none }
 .portrait-frame.photo-fill::after { background: linear-gradient(to top, rgba(14, 10, 23, .85) 0%, transparent 38%) }
 
 .marquee-track figure.txt { width: 240px; font-weight: 600; font-size: 1.05rem; letter-spacing: .01em; color: var(--text-2); white-space: nowrap }
