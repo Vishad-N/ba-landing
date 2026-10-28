@@ -8,9 +8,9 @@ import './App.css';
    ================================================================== */
 
 // Every CTA opens the registration page.
-const REGISTER_URL = 'https://webinar.gg/register/cmvj4mk8600fos60ylzzqtq81';
+const REGISTER_URL = 'https://rzp.io/rzp/z8Qyfmm';
 
-const EVENT_NAME = 'MAP49™ Online Live Session';
+const EVENT_NAME = 'TPS™ Live Session';
 const COMPANY = 'Sparsh Magic';
 const TAGLINE = 'Growth. Yours Forever.';
 
@@ -18,19 +18,21 @@ const PHONE_DISPLAY = '+91 96309 21905';
 const PHONE_TEL = 'tel:+919630921905';
 const WHATSAPP_LINK =
   'https://wa.me/919630921905?text=' +
-  encodeURIComponent('Hi, I have a question about the MAP49 Online Live Session.');
+  encodeURIComponent('Hi, I have a question about the TPS Live Session.');
 const WEBSITE_URL = 'https://www.teamproductivityonspeed.com';
 const WEBSITE_LABEL = 'teamproductivityonspeed.com';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/rupakaich/';
 
 const EVENT = {
-  date: 'Sunday, 25th October 2026',
-  dateShort: '25th October',
-  time: '09:00 AM - 11:00 AM IST',
-  startsAt: '2026-10-25T09:00:00+05:30',
-  platform: 'ZOOM',
-  price: 'FREE',
-  lengthLabel: '2 Hour Live Session',
+  date: 'Saturday, 28th November 2026',
+  dateShort: '28th November',
+  time: '10:00 AM Onwards',
+  startsAt: '2026-11-28T10:00:00+05:30',
+  venue: 'Hotel Holiday Inn, Mayur Vihar',
+  platform: 'Hotel Holiday Inn, Mayur Vihar',
+  price: '₹3,499',
+  originalPrice: '₹9,999',
+  lengthLabel: 'Live In-Person Workshop',
 };
 
 const SEATS_TOTAL = 100;
@@ -76,7 +78,7 @@ const JOURNEY = [
 ];
 
 const MODULES = [
-  { n: '01', title: 'The MAP49™ Team Productivity Framework', items: [
+  { n: '01', title: 'The TPS™ (Team Productivity System) Framework', items: [
     'The complete Matrix of Accountability and Productivity: 4 areas, 9 performance scores',
     'Know exactly where your team is leaking productivity and profit right now',
   ] },
@@ -109,7 +111,7 @@ const MENTOR_STATS = [
 ];
 
 const WINS = [
-  'Built the MAP49™ system from 342+ real MSME case studies, not imported theories',
+  'Built the TPS™ (Team Productivity System) from 342+ real MSME case studies, not imported theories',
   'Helped a retail chain go from 100% owner-dependent to fully self-running in 90 days',
   'Delivered 171% revenue growth for a distribution business in 2 years',
   'Reduced operational costs by 15% across multiple businesses without firing anyone',
@@ -119,7 +121,7 @@ const WINS = [
 
 const GALLERY = [
   ['/image1.jpg', 'Rupak Aich speaking at a live event', 'Live Event'],
-  ['/image2.jpg', 'A MAP49 workshop session', 'Workshop Session'],
+  ['/image2.jpg', 'A TPS workshop session', 'Workshop Session'],
   ['/image3.jpg', 'Recognition and awards', 'Recognition & Awards'],
 ];
 
@@ -141,16 +143,23 @@ const TESTIMONIALS = [
   ['UA', 'Umesh Agrawal', 'S Square Marketing, Distributor', 'By our side we have grown in ways we hadn\'t even dreamt of. In two years with Rupak we have grown by 171%.'],
   ['AG', 'Ashwin Gandhi', 'Kohinoor Mall, Retail', 'Team capable of handling the store on its own. They can now play with data, think data and work with data. This has been my biggest achievement.'],
   ['JS', 'Jagmohan Singh', 'JSA', 'Team productivity increased by 70%. I rate them 8 out of 10 in implementing Team Productivity. The system actually works.'],
-  ['NN', 'Nikhil Naik', 'A D Naik Wealth', 'Team got aligned and we are on growth trajectory. The MAP49 system gave us clarity we never had before in 10 years of business.'],
+  ['NN', 'Nikhil Naik', 'A D Naik Wealth', 'Team got aligned and we are on growth trajectory. The TPS system gave us clarity we never had before in 10 years of business.'],
   ['RP', 'Ravindra Patil', 'Patco Precision', 'The clarity I got about my team\'s performance in one session was more than I got in 5 years of running the business.'],
-  ['MF', 'MSME Founder', 'MAP49™ Online Attendee', 'I have been running my business for 12 years and nobody ever showed me this. This is the most practical thing I have ever attended.'],
+  ['MF', 'MSME Founder', 'TPS™ Workshop Attendee', 'I have been running my business for 12 years and nobody ever showed me this. This is the most practical thing I have ever attended.'],
 ];
 
-// YouTube testimonials. The first one is the featured (large) video.
+// Video testimonials. The first one is the featured (large) video.
 const VIDEOS = [
-  { id: 'Z_UgC6dlifg', metric: '171%', who: 'POS Online', path: 'In two years with Rupak, we grew by 171%. The MAP49 system changed everything.' },
+  { id: 'Z_UgC6dlifg', metric: '171%', who: 'POS Online', path: 'In two years with Rupak, we grew by 171%. The TPS system changed everything.' },
   { id: '4gbyKHIk07Q', metric: '70%', who: 'Jagmohan Singh, JSA', path: 'Team\'s productivity increased by 70%. The system actually works.' },
-  { id: 'e-VT1RWkI7A', metric: 'Aligned', who: 'Ankur Agarwal, 38barracks', path: 'Team aligned, on growth trajectory. Clarity we never had in 10 years.' },
+  {
+    id: 'ashwin-gandhi',
+    url: 'https://1drv.ms/v/c/A57D43C0A3EF3CB3/Ab4mkk6119JKvf3jxAiOkH4?e=C7aooY',
+    poster: '/ashwin-gandhi.jpg',
+    metric: '90 Days',
+    who: 'Ashwin Gandhi, Kohinoor Mall',
+    path: 'Team capable of handling the store on its own. They now play with data, think data and work with data.',
+  },
 ];
 
 const ATTEND = [
@@ -175,14 +184,14 @@ const SKIP = [
 const GIFTS = [
   ['ph-clipboard-text', 'Team Accountability Templates', 'Ready-to-use templates to install accountability in your team from Day 1.'],
   ['ph-calculator', 'Productivity Calculation Models', 'Simple models to calculate exactly how much productivity is leaking from your team right now.'],
-  ['ph-list-checks', 'Implementation Checklist', 'A step-by-step checklist to implement the MAP49™ system within 30 days.'],
+  ['ph-list-checks', 'Implementation Checklist', 'A step-by-step checklist to implement the TPS™ (Team Productivity System) within 30 days.'],
   ['ph-gift', 'Surprise Digital Gifts', 'Special digital gifts shared with every live attendee. You have to show up to find out.'],
-  ['ph-chats-circle', 'Live Q&A with Rupak', 'Ask your specific business and team challenges directly to Rupak. Get answers live on Zoom.'],
-  ['ph-crown-simple', 'Executive Circle (Last 30 Seats)', 'The last 30 registrations get VIP placement, priority Q&A access and exclusive benefits on the call.'],
+  ['ph-chats-circle', 'Live Q&A with Rupak', 'Ask your specific business and team challenges directly to Rupak. Get answers live in person.'],
+  ['ph-crown-simple', 'Executive Circle (Last 30 Seats)', 'The last 30 registrations get VIP placement, priority Q&A access and exclusive benefits at the venue.'],
 ];
 
 const VALUE_STACK = [
-  'Complete MAP49™ Team Productivity System',
+  'Complete TPS™ (Team Productivity System)',
   '9-Matrix Team Performance Score',
   'Live Implementation Frameworks',
   'Real MSME Case Studies',
@@ -190,19 +199,19 @@ const VALUE_STACK = [
   'Team Accountability Templates',
   'Productivity Calculation Models',
   'Implementation Checklist',
-  'Join from Anywhere in India via Zoom',
+  'In-Person Workshop at Hotel Holiday Inn, Mayur Vihar',
   'Live Q&A with Rupak Aich',
   'Surprise Digital Gifts for All Attendees',
 ];
 
 const FAQS = [
-  ['Is this a recorded session or live?', 'This is a fully LIVE online session on Zoom. Not a recording. Not a replay. You need to show up live. The live format is intentional: real questions, real answers, real transformation in real time.'],
-  ['I have attended workshops before. How is this different?', 'Most workshops give you knowledge. This gives you a system. MAP49™ is not a concept you take notes on. It is a working framework you implement the very next day. Every session is built on 342+ real MSME case studies, not theory from a textbook.'],
-  ['Do I need to install anything to join?', 'No installation needed. Just click the Zoom link you receive after registration. You can join from your phone, tablet or laptop. Make sure you have a stable internet connection and a quiet place to sit for the full session.'],
-  ['Why is this session completely free?', 'This session is 100% free because we believe every serious founder deserves access to the MAP49™ system, regardless of budget. Our mission is transformation at scale. No hidden costs, no upsell surprises on the call. Just show up and learn.'],
-  ['What if I miss the live session?', `There is no replay or recording of this session. If you miss it you will have to wait for the next live event. We strongly recommend you register and block your calendar right now. WhatsApp us on ${PHONE_DISPLAY} if you have any questions.`],
-  ['My team has only 10 people. Is this still relevant?', 'Yes. The MAP49™ framework is designed for teams of all sizes. Whether you have 10 or 1000 employees, the accountability and productivity systems are applicable. The earlier you install this, the faster your business grows without you.'],
-  ['Will there be a recording after the session?', 'There will be NO recording of this session. This is intentional. The live format creates better learning, better questions and better transformation. Attend live or miss it entirely. Register now to make sure you show up.'],
+  ['Is this a recorded session or live in-person?', 'This is a fully LIVE in-person workshop at Hotel Holiday Inn, Mayur Vihar. Not an online recording. You need to attend in person. The live format is intentional: real questions, real answers, real transformation in real time.'],
+  ['I have attended workshops before. How is this different?', 'Most workshops give you knowledge. This gives you a system. TPS™ (Team Productivity System) is not a concept you take notes on. It is a working framework you implement the very next day. Every session is built on 342+ real MSME case studies, not theory from a textbook.'],
+  ['What should I bring to the workshop venue?', 'Just bring a notebook and an open mind. We will provide all workshop materials, accountability templates, and calculation models directly at the venue. Please arrive a few minutes early before 10:00 AM for check-in.'],
+  ['Why is the registration fee ₹3,499 instead of ₹9,999?', 'The regular ticket price is ₹9,999, but we are offering a limited special seat rate of ₹3,499 to support growth-focused MSME founders. There are strictly limited seats due to venue hall capacity.'],
+  ['What if I miss the live session?', `There is no recording or replay of this in-person session. Seats are strictly reserved for registered attendees at the venue. We strongly recommend you register and block your calendar right now. WhatsApp us on ${PHONE_DISPLAY} if you have any questions.`],
+  ['My team has only 10 people. Is this still relevant?', 'Yes. The TPS™ (Team Productivity System) framework is designed for teams of all sizes. Whether you have 10 or 1000 employees, the accountability and productivity systems are applicable. The earlier you install this, the faster your business grows without you.'],
+  ['Will there be a recording after the session?', 'There will be NO recording of this session. This is an exclusive in-person workshop at Hotel Holiday Inn, Mayur Vihar. Attend live or miss it entirely. Register now to confirm your seat.'],
 ];
 
 /* ==================================================================
@@ -322,8 +331,8 @@ function CtaButton({ children, className = '', placement }) {
 function Trust() {
   return (
     <div className="trust">
-      <span><i className="ph ph-gift" />100% Free</span>
-      <span><i className="ph ph-video-camera" />Live on Zoom</span>
+      <span><i className="ph ph-tag" />₹3,499 <s>₹9,999</s></span>
+      <span><i className="ph ph-map-pin" />Holiday Inn, Mayur Vihar</span>
       <span><i className="ph ph-clipboard-text" />Templates Included</span>
       <span><i className="ph ph-question" />Live Q&amp;A With Rupak</span>
     </div>
@@ -354,7 +363,7 @@ function Seats() {
 }
 
 /* CTA block: one action, repeated with the same promise every time. */
-function CtaBlock({ label = 'Register Now, It\'s Free', placement, id, trustFirst = false, full = false, extraClass = 'rv' }) {
+function CtaBlock({ label = 'Register Now · ₹3,499', placement, id, trustFirst = false, full = false, extraClass = 'rv' }) {
   return (
     <div className={`cta-block ${extraClass}`} id={id}>
       <CtaButton className={full ? 'full' : 'wide'} placement={placement}>
@@ -659,7 +668,7 @@ function IntroVideo() {
             <b>A quick hello from {MENTOR.name}</b>
             <small>{MENTOR.title}</small>
           </span>
-          <span className="intro-when"><i className="ph ph-calendar-blank" aria-hidden="true" />{EVENT.dateShort} · 09:00 AM IST</span>
+          <span className="intro-when"><i className="ph ph-calendar-blank" aria-hidden="true" />{EVENT.dateShort} · {EVENT.time}</span>
         </div>
       </div>
     </div>
@@ -673,8 +682,8 @@ function Hero({ heroRef }) {
       <div className="wrap">
         <div className="hero-head rv">
           <span className="eyebrow">
-            <i className="ph-fill ph-broadcast" />
-            {EVENT_NAME} · {EVENT.dateShort} · Free
+            <i className="ph-fill ph-map-pin" />
+            {EVENT_NAME} · {EVENT.dateShort} · {EVENT.venue}
           </span>
           <h1 className="display h1">
             Can Your Business Run For <span className="hl">30 Days Without You?</span>
@@ -701,7 +710,7 @@ function Hero({ heroRef }) {
               <span>{MENTOR.title}</span>
             </div>
             <p className="bio">
-              <strong>{MENTOR.name}</strong> has spent 20+ years inside real Indian businesses and built the MAP49™ framework from <strong>342+ MSMEs</strong> and <strong>32,000+ employees</strong>.
+              <strong>{MENTOR.name}</strong> has spent 20+ years inside real Indian businesses and built the TPS™ (Team Productivity System) framework from <strong>342+ MSMEs</strong> and <strong>32,000+ employees</strong>.
             </p>
           </div>
 
@@ -709,8 +718,8 @@ function Hero({ heroRef }) {
             <h2 className="details-title">SESSION DETAILS</h2>
             <div className="drow"><span className="k"><i className="ph ph-calendar-blank" />Date</span><span className="v">{EVENT.date}</span></div>
             <div className="drow"><span className="k"><i className="ph ph-clock" />Time</span><span className="v">{EVENT.time}</span></div>
-            <div className="drow"><span className="k"><i className="ph ph-video-camera" />Live on</span><span className="v">{EVENT.platform}</span></div>
-            <div className="drow"><span className="k"><i className="ph ph-gift" />Price</span><span className="v">{EVENT.price}</span></div>
+            <div className="drow"><span className="k"><i className="ph ph-map-pin" />Venue</span><span className="v">{EVENT.venue}</span></div>
+            <div className="drow"><span className="k"><i className="ph ph-tag" />Fee</span><span className="v"><s style={{ opacity: .6, marginRight: 8, fontSize: '.9em' }}>{EVENT.originalPrice}</s>{EVENT.price}</span></div>
             <CtaBlock placement="hero" trustFirst full extraClass="" />
             <p className="ask">
               Having trouble?{' '}
@@ -730,7 +739,7 @@ function Clients() {
     ));
   return (
     <section className="tools">
-      <h2 className="tools-title rv">Founders From These Businesses Have Implemented MAP49™</h2>
+      <h2 className="tools-title rv">Founders From These Businesses Have Implemented TPS™</h2>
       <div className="marquee rv" style={{ '--i': 1 }}>
         {/* duplicated once so the -50% loop is seamless */}
         <div className="marquee-track">{names(false)}{names(true)}</div>
@@ -757,7 +766,7 @@ function Pains() {
           ))}
         </div>
         <p className="lead rv">If even ONE of these resonates, this session was built for you.</p>
-        <CtaBlock label="Join on Zoom, It's Free" placement="pains" />
+        <CtaBlock label="Register for Workshop · ₹3,499" placement="pains" />
       </div>
     </section>
   );
@@ -826,7 +835,7 @@ function Modules() {
     <section className="modules light">
       <div className="wrap">
         <span className="pill rv">What You'll Discover</span>
-        <h2 className="display h2 rv">In 2 Hours Live On Zoom, You'll Walk Away <span className="hl">With A System</span></h2>
+        <h2 className="display h2 rv">In This Live Workshop, You'll Walk Away <span className="hl">With A System</span></h2>
         <p className="lead rv">Not theory. Not slides you'll forget. A working framework you implement on Monday morning.</p>
         <div className="mod-grid">
           {MODULES.map((m, i) => (
@@ -854,7 +863,7 @@ function Mentor() {
         <div className="mentor-card rv">
           <div className="top">
             <span className="pill">Your Host</span>
-            <h2 className="display h2">The Man Behind <span className="hl">MAP49™</span></h2>
+            <h2 className="display h2">The Man Behind <span className="hl">TPS™</span></h2>
           </div>
           <div className="mentor-photo">
             <Photo src={MENTOR.photo} alt={`${MENTOR.name} speaking`} />
@@ -870,8 +879,8 @@ function Mentor() {
               ))}
             </div>
             <p>{MENTOR.name} is not a motivational speaker. He is a practitioner, someone who has spent over 20 years inside real Indian businesses, diagnosing exactly why teams underperform and fixing it with <strong>systems, not slogans</strong>.</p>
-            <p>He developed the MAP49™ framework after studying 342+ MSMEs and analyzing over 32,000 employees across manufacturing, retail, services, distribution and healthcare.</p>
-            <p>His consulting engagements typically cost between <strong>₹3 Lakh to ₹14 Lakh</strong> per business. In this live session, you get the same system, free.</p>
+            <p>He developed the TPS™ (Team Productivity System) framework after studying 342+ MSMEs and analyzing over 32,000 employees across manufacturing, retail, services, distribution and healthcare.</p>
+            <p>His consulting engagements typically cost between <strong>₹3 Lakh to ₹14 Lakh</strong> per business. In this live workshop, you get the exact same system for just ₹3,499.</p>
             <ul className="wins">
               {WINS.map((w) => (<li key={w}><i className="ph ph-check-circle" />{w}</li>))}
             </ul>
@@ -898,7 +907,7 @@ function Numbers() {
       <div className="wrap">
         <span className="pill rv">Proven Results</span>
         <h2 className="display h2 rv">Real Numbers. <span className="hl">Real Businesses. Real India.</span></h2>
-        <p className="lead rv">Results from MSME founders who implemented MAP49™. Results may vary; individual outcomes depend on implementation.</p>
+        <p className="lead rv">Results from MSME founders who implemented TPS™. Results may vary; individual outcomes depend on implementation.</p>
         <div className="stat-grid">
           {RESULT_STATS.map(([icon, big, label, sub], i) => (
             <div className="stat-card rv" style={{ '--i': i }} key={label}>
@@ -913,7 +922,7 @@ function Numbers() {
         <div className="case rv">
           <span className="pill">Real Case Study · Retail Industry</span>
           <h3>From 100% Owner-Dependent to Fully Self-Running in 90 Days</h3>
-          <p>A retail business owner with 100% owner-dependent operations. Here's what happened in 90 days after implementing MAP49™.</p>
+          <p>A retail business owner with 100% owner-dependent operations. Here's what happened in 90 days after implementing TPS™.</p>
           <div className="case-grid">
             {CASE_STUDY.map(([label, before, after]) => (
               <div className="case-row" key={label}>
@@ -942,6 +951,37 @@ const ytSrc = (id) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&r
 
 function VideoCard({ video, featured = false, playing, onPlay }) {
   const [hd, setHd] = useState(true);
+
+  if (video.url) {
+    return (
+      <article className={`vcard${featured ? ' featured' : ''}`}>
+        <div className="vframe">
+          <a
+            href={video.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="vposter"
+            onClick={onPlay}
+            aria-label={`Watch ${video.who}'s video testimonial on OneDrive`}
+          >
+            <img src={video.poster} alt={video.who} loading="lazy" decoding="async" />
+            <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>
+            <span className="vtag video-pill" aria-hidden="true">
+              <i className="ph-fill ph-arrow-square-out" />Watch Story ↗
+            </span>
+          </a>
+        </div>
+        <div className="vmeta">
+          <div className="metric">{video.metric}</div>
+          <div>
+            <div className="who">{video.who}</div>
+            <div className="path">{video.path}</div>
+          </div>
+        </div>
+      </article>
+    );
+  }
+
   return (
     <article className={`vcard${featured ? ' featured' : ''}${playing ? ' playing' : ''}`}>
       <div className="vframe">
@@ -995,7 +1035,7 @@ function Results() {
           {/* On phones this becomes a swipeable row */}
           <div className="vrail rv" style={{ '--i': 1 }} aria-label="More video stories">
             {rest.map((v, k) => (
-              <VideoCard key={v.id} video={v} playing={playing === k + 1} onPlay={() => play(k + 1)} />
+              <VideoCard key={v.id || v.url} video={v} playing={playing === k + 1} onPlay={() => play(k + 1)} />
             ))}
           </div>
         </div>
@@ -1068,8 +1108,9 @@ function Gifts() {
               <li key={label}><i className="ph ph-check-circle" /><span>{label}</span></li>
             ))}
           </ul>
-          <p className="invest">Your Investment<br />Today : <span className="hl">FREE</span></p>
-          <p className="total">100% Free. No credit card. Just show up live on Zoom.</p>
+          <p className="total">Total Value: <s>{EVENT.originalPrice}</s></p>
+          <p className="invest">Your Investment<br />Today : <span className="hl">{EVENT.price}</span></p>
+          <p className="total" style={{ marginTop: 12 }}>Limited seats available at {EVENT.venue}.</p>
         </div>
         <CtaBlock placement="value" />
         <p className="support rv">
@@ -1099,9 +1140,9 @@ function Faq() {
         </div>
         <div className="horizon-band" aria-hidden="true"><div className="horizon" /></div>
         <h2 className="display h2 final-title rv">Your Team Is Ready. <span className="hl">Are You?</span></h2>
-        <p className="lead rv">100 serious founders. One live session on Zoom. The system that changes how your business runs, forever.</p>
+        <p className="lead rv">100 serious founders. One live in-person workshop. The system that changes how your business runs, forever.</p>
         <CtaBlock placement="final" id="enrol" />
-        <p className="lead rv">{EVENT.date} · {EVENT.time} · Online, Zoom. No late entry. No replay.</p>
+        <p className="lead rv">{EVENT.date} · {EVENT.time} · {EVENT.venue}. Limited seats.</p>
       </div>
     </section>
   );
@@ -1138,11 +1179,11 @@ function StickyBar({ show }) {
       <span className="chip">{EVENT.lengthLabel}</span>
       <div className="wrap">
         <div className="urg">
-          <div><b>Only {SEATS_LEFT} seats left</b> · Free · No replay</div>
-          <small>Session starts in <Timer /></small>
+          <div><b>Only {SEATS_LEFT} seats left</b> · {EVENT.venue}</div>
+          <small>Workshop starts in <Timer /></small>
         </div>
         <CtaButton placement="sticky" className="">
-          Register Now · Free
+          Register Now · {EVENT.price} <s>{EVENT.originalPrice}</s>
         </CtaButton>
       </div>
     </div>
@@ -1163,7 +1204,7 @@ export default function App() {
       <SvgDefs />
       <MobileBackdrop />
       <div className="topbar">
-        <b>{EVENT_NAME}</b> · {EVENT.dateShort} · Free · Limited to {SEATS_TOTAL} seats · No replay
+        <b>{EVENT_NAME}</b> · {EVENT.dateShort} · {EVENT.venue} · Special Fee: {EVENT.price} <s>{EVENT.originalPrice}</s> · Limited to {SEATS_TOTAL} seats
       </div>
       <main>
         <Hero heroRef={heroRef} />
