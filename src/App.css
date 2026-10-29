@@ -822,3 +822,6 @@ footer .disclaimer { font-size: .78rem; color: var(--text-3); max-width: 80ch }
 
 /* nudge Rupak left so he sits centred in the hero frame */
 .portrait-frame.photo-fill img { transform: translateX(-7%) scale(1.15); transform-origin: 50% 0 }
+
+/* nudge Rupak left so he sits centred in the Man Behind TPS frame */
+.mentor-photo img { transform: translateX(-7%) scale(1.15); transform-origin: 50% 0 }
