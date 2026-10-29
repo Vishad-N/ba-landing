@@ -43,7 +43,7 @@ const SEAT_ICONS = 12;
 const MENTOR = {
   name: 'Rupak Aich',
   title: "India's #1 Team Productivity Expert",
-  photo: '/rupak-aich.jpg',
+  photo: '/rupak_sir.webp',
 };
 
 // Hero intro video (landscape 16:9).
@@ -120,9 +120,9 @@ const WINS = [
 ];
 
 const GALLERY = [
-  ['/image1.jpg', 'Rupak Aich speaking at a live event', 'Live Event'],
-  ['/image2.jpg', 'A TPS workshop session', 'Workshop Session'],
-  ['/image3.jpg', 'Recognition and awards', 'Recognition & Awards'],
+  ['/live_event.jpg', 'Rupak Aich speaking at a live event', 'Live Event'],
+  ['/recognition_awards.jpg', 'Recognition and awards with MSME leaders', 'Recognition & Awards'],
+  ['/workshop_session.jpg', 'A TPS workshop session', 'Workshop Session'],
 ];
 
 const RESULT_STATS = [
@@ -154,7 +154,7 @@ const VIDEOS = [
   { id: '4gbyKHIk07Q', metric: '70%', who: 'Jagmohan Singh, JSA', path: 'Team\'s productivity increased by 70%. The system actually works.' },
   {
     id: 'ashwin-gandhi',
-    url: 'https://vimeo.com/1240221272?share=copy&fl=sv&fe=ci',
+    vimeoId: '1240221272',
     poster: '/ashwin-gandhi.jpg',
     metric: '90 Days',
     who: 'Ashwin Gandhi, Kohinoor Mall',
@@ -703,7 +703,7 @@ function Hero({ heroRef }) {
           <div className="horizon" aria-hidden="true" />
           <div className="portrait rv" style={{ '--i': 1 }}>
             <div className="portrait-frame photo-fill">
-              <Photo src="/rupak-session.webp" alt={`Portrait of ${MENTOR.name}`} eager />
+              <Photo src="/rupak_sir.webp" alt={`Portrait of ${MENTOR.name}`} eager />
             </div>
             <div className="nameplate">
               <b>{MENTOR.name.toUpperCase()}</b>
@@ -952,24 +952,23 @@ const ytSrc = (id) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&r
 function VideoCard({ video, featured = false, playing, onPlay }) {
   const [hd, setHd] = useState(true);
 
-  if (video.url) {
+  if (video.vimeoId) {
     return (
-      <article className={`vcard${featured ? ' featured' : ''}`}>
+      <article className={`vcard${featured ? ' featured' : ''}${playing ? ' playing' : ''}`}>
         <div className="vframe">
-          <a
-            href={video.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="vposter"
-            onClick={onPlay}
-            aria-label={`Watch ${video.who}'s video testimonial`}
-          >
-            <img src={video.poster} alt={video.who} loading="lazy" decoding="async" />
-            <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>
-            <span className="vtag video-pill" aria-hidden="true">
-              <i className="ph-fill ph-arrow-square-out" />Watch Story ↗
-            </span>
-          </a>
+          {playing ? (
+            <iframe
+              src={`https://player.vimeo.com/video/${video.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+              title={`${video.who}: video testimonial`}
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <button type="button" className="vposter" onClick={onPlay} aria-label={`Play ${video.who}'s testimonial`}>
+              <img src={video.poster} alt="" loading="lazy" decoding="async" />
+              <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>
+            </button>
+          )}
         </div>
         <div className="vmeta">
           <div className="metric">{video.metric}</div>
