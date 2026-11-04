@@ -50,7 +50,7 @@ const MENTOR = {
 // vimeoId: the number in vimeo.com/123456789. For unlisted videos also set `hash`
 // (the part after the slash in vimeo.com/123456789/abcdef1234).
 // In Vimeo: Settings > Privacy > allow embedding on your domain, and keep audio on.
-const INTRO_VIDEO = { vimeoId: '1238382386', hash: '' };
+const INTRO_VIDEO = { vimeoId: '1243285135', hash: '' };
 
 const HEADLINE_STATS = [
   ['ph-fill ph-buildings', '342+ MSMEs Transformed'],
