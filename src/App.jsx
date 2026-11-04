@@ -155,7 +155,8 @@ const VIDEOS = [
   {
     id: 'ashwin-gandhi',
     vimeoId: '1240221272',
-    poster: '/ashwin-gandhi.jpg',
+    poster: '/ashwin-gandhi.webp',
+    posterPosition: 'center 10%',
     metric: '90 Days',
     who: 'Ashwin Gandhi, Kohinoor Mall',
     path: 'Team capable of handling the store on its own. They now play with data, think data and work with data.',
@@ -965,7 +966,13 @@ function VideoCard({ video, featured = false, playing, onPlay }) {
             />
           ) : (
             <button type="button" className="vposter" onClick={onPlay} aria-label={`Play ${video.who}'s testimonial`}>
-              <img src={video.poster} alt="" loading="lazy" decoding="async" />
+              <img
+                src={video.poster}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                style={video.posterPosition ? { objectPosition: video.posterPosition } : undefined}
+              />
               <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>
             </button>
           )}
