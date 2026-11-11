@@ -270,6 +270,12 @@ a.vposter { text-decoration: none; cursor: pointer }
 .stack li { display: flex; gap: 10px; align-items: baseline; border-bottom: 1px dashed var(--line-2); padding: 12px 6px; font-weight: 600; color: var(--text) }
 .stack li i { transform: translateY(2px); color: var(--lilac) }
 .stack li em { font-style: italic; color: var(--text-3); font-weight: 400; white-space: nowrap }
+.stack .stack-group { margin-top: 26px; text-align: left }
+.stack .stack-sub { font-weight: 600; font-size: 1.1rem; color: var(--lilac); letter-spacing: .02em; padding: 0 6px }
+.stack .stack-group ul { margin-top: 10px }
+.stack li > span { flex: 1 }
+.stack .stack-sublist { margin-top: 8px; gap: 0 }
+.stack .stack-sublist li { display: list-item; list-style: disc; margin-left: 18px; padding: 4px 0; border-bottom: 0; font-weight: 400; color: var(--text-2) }
 .stack .total { margin-top: 22px; color: var(--text-2); font-size: 1.1rem }
 .stack .total s { text-decoration-thickness: 2px }
 .stack .invest { font-weight: 500; font-size: clamp(1.9rem, 3.6vw, 2.6rem); letter-spacing: -.02em; line-height: 1.2; margin-top: 6px; color: var(--text) }
@@ -509,7 +515,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 .gallery figcaption { padding: 10px 14px; font-weight: 600; font-size: .9rem; color: var(--text-2) }
 
 .numbers { padding: 90px 0 }
-.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 30px }
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px }
 .stat-card { display: grid; justify-items: center; gap: 4px; text-align: center; padding: 26px 16px; background: var(--card-bg); border: 1px solid var(--line-2); border-radius: var(--r-card); box-shadow: var(--shadow) }
 .stat-card i { font-size: 1.7rem; color: var(--lilac) }
 .stat-card b { font-size: 2.6rem; font-weight: 600; letter-spacing: -.03em; line-height: 1.1; color: var(--text) }
@@ -553,7 +559,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
 .gifts-head { text-align: center }
 .gifts-head .pill { margin-bottom: 14px }
-.gift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 30px 0 60px }
+.gift-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin: 30px 0 60px }
+.gift-grid .gift { grid-column: span 2 }
+.gift-grid .gift:nth-child(4) { grid-column: 2 / span 2 }
 .gift { padding: 24px; border: 1px solid var(--line-2); border-radius: var(--r-card); background: var(--card-bg); box-shadow: var(--shadow) }
 .gift .ico { width: 52px; height: 52px; border-radius: 14px; background: var(--purple-wash); border: 1px solid var(--line-2); display: grid; place-items: center; margin-bottom: 14px }
 .gift .ico i { font-size: 26px; color: var(--lilac) }
@@ -574,6 +582,7 @@ footer .disclaimer { font-size: .78rem; color: var(--text-3); max-width: 80ch }
 @media (max-width: 1024px) {
   .stat-grid { grid-template-columns: 1fr 1fr }
   .tgrid, .gift-grid { grid-template-columns: 1fr 1fr }
+  .gift-grid .gift, .gift-grid .gift:nth-child(4) { grid-column: auto }
 }
 @media (max-width: 767px) {
   .marquee-track figure.txt { width: 170px; font-size: .9rem }
