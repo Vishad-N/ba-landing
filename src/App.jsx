@@ -148,7 +148,7 @@ const TESTIMONIALS = [
 
 // Video testimonials. The first one is the featured (large) video.
 const VIDEOS = [
-  { id: 'Z_UgC6dlifg', metric: '', who: 'POS Online Session Feedback', path: 'A founder shares his experience of the POS Online session with Rupak.' },
+  { id: 'Z_UgC6dlifg', poster: '/rajeev-bansal.webp', posterPosition: '100% 30%', metric: '', who: 'POS Online Session Feedback', path: 'A founder shares his experience of the POS Online session with Rupak.' },
   { id: '4gbyKHIk07Q', metric: '70%', who: 'Jagmohan Singh, JSA', path: 'Team\'s productivity increased by 70%. The system actually works.' },
   {
     id: 'ashwin-gandhi',
@@ -890,7 +890,7 @@ function Mentor() {
             <ul className="wins">
               {WINS.map((w) => (<li key={w}><i className="ph ph-check-circle" />{w}</li>))}
             </ul>
-            <p className="mission"><strong>Mission:</strong> India — Sone Ki Chidiya Again. Powered by Profitable SMEs.</p>
+            <p className="mission"><strong>Mission:</strong> To Make India Sone Ki Chidiya Again</p>
           </div>
         </div>
 
@@ -1005,7 +1005,17 @@ function VideoCard({ video, featured = false, playing, onPlay }) {
           />
         ) : (
           <button type="button" className="vposter" onClick={onPlay} aria-label={`Play ${video.who}'s testimonial`}>
-            <img src={ytThumb(video.id, hd)} alt="" loading="lazy" decoding="async" onError={() => setHd(false)} />
+            {video.poster ? (
+              <img
+                src={video.poster}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                style={video.posterPosition ? { objectPosition: video.posterPosition } : undefined}
+              />
+            ) : (
+              <img src={ytThumb(video.id, hd)} alt="" loading="lazy" decoding="async" onError={() => setHd(false)} />
+            )}
             <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>
             {featured && <span className="vtag" aria-hidden="true"><i className="ph-fill ph-star" />Featured story</span>}
           </button>
@@ -1202,6 +1212,22 @@ function Footer() {
   );
 }
 
+// Floating WhatsApp button. Lifts above the sticky register bar once that bar is visible.
+function FloatingWhatsApp({ lift }) {
+  return (
+    <a
+      className={`wa-float${lift ? ' lift' : ''}`}
+      href={WHATSAPP_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Chat with us on WhatsApp ${PHONE_DISPLAY}`}
+      onClick={() => trackWhatsApp('floating')}
+    >
+      <i className="ph-fill ph-whatsapp-logo" aria-hidden="true" />
+    </a>
+  );
+}
+
 function StickyBar({ show }) {
   return (
     <div className={`sticky${show ? ' show' : ''}`} role="region" aria-label="Limited seats">
@@ -1250,6 +1276,7 @@ export default function App() {
       </main>
       <Footer />
       <StickyBar show={showSticky} />
+      <FloatingWhatsApp lift={showSticky} />
     </div>
   );
 }

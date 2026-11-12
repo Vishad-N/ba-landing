@@ -367,6 +367,20 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 .timer span { background: var(--surface-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 1px 7px; font-weight: 600; color: var(--text) }
 .sticky .btn { font-size: 1rem; padding: 13px 30px; letter-spacing: .06em; text-transform: uppercase }
 
+/* ---------- floating WhatsApp ---------- */
+.wa-float { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 90; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: #25D366; color: #fff; font-size: 32px; text-decoration: none; box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .18) inset; transition: bottom .5s var(--ease), transform .25s var(--ease) }
+.wa-float:hover { transform: scale(1.08) }
+.wa-float:focus-visible { outline: 3px solid var(--lilac); outline-offset: 3px }
+.wa-float.lift { bottom: calc(112px + env(safe-area-inset-bottom)) }
+@media (max-width: 720px) {
+  .wa-float { width: 52px; height: 52px; font-size: 30px; right: max(12px, env(safe-area-inset-right)) }
+  .wa-float.lift { bottom: calc(150px + env(safe-area-inset-bottom)) }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wa-float::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #25D366; opacity: .5; animation: wapulse 2.4s ease-out infinite; z-index: -1 }
+}
+@keyframes wapulse { to { transform: scale(1.6); opacity: 0 } }
+
 /* ---------- reveal ---------- */
 .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i, 0) * 70ms) }
 .rv.in { opacity: 1; transform: none }
