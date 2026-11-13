@@ -148,7 +148,7 @@ const TESTIMONIALS = [
 
 // Video testimonials. The first one is the featured (large) video.
 const VIDEOS = [
-  { id: 'Z_UgC6dlifg', poster: '/rajeev-bansal.webp', posterPosition: '100% 30%', metric: '', who: 'POS Online Session Feedback', path: 'A founder shares his experience of the POS Online session with Rupak.' },
+  { id: 'Z_UgC6dlifg', poster: '/tt-1.webp', posterPosition: 'center',metric: '', who: 'POS Online Session Feedback', path: 'A founder shares his experience of the POS Online session with Rupak.' },
   { id: '4gbyKHIk07Q', metric: '70%', who: 'Jagmohan Singh, JSA', path: 'Team\'s productivity increased by 70%. The system actually works.' },
   {
     id: 'ashwin-gandhi',
@@ -1017,7 +1017,6 @@ function VideoCard({ video, featured = false, playing, onPlay }) {
               <img src={ytThumb(video.id, hd)} alt="" loading="lazy" decoding="async" onError={() => setHd(false)} />
             )}
             <span className="vplay" aria-hidden="true"><i className="ph-fill ph-play" /></span>
-            {featured && <span className="vtag" aria-hidden="true"><i className="ph-fill ph-star" />Featured story</span>}
           </button>
         )}
       </div>
